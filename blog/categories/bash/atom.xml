@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bash | Notes]]></title>
   <link href="http://res0nat0r.github.com/blog/categories/bash/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T13:15:09-07:00</updated>
+  <updated>2012-07-14T13:22:02-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Show Git Branch via your Bash Prompt]]></title>
+    <title type="html"><![CDATA[Show git branch via your bash prompt]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
     <updated>2012-07-14T13:10:00-07:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>

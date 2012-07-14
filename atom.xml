@@ -4,7 +4,7 @@
   <title><![CDATA[Notes]]></title>
   <link href="http://res0nat0r.github.com/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T13:15:09-07:00</updated>
+  <updated>2012-07-14T13:22:02-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -14,7 +14,34 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Show Git Branch via your Bash Prompt]]></title>
+    <title type="html"><![CDATA[Create a new and empty branch in git]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git/"/>
+    <updated>2012-07-14T13:18:00-07:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create new empty branch:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git checkout --orphan &lt;branch&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Delete all files in the working directory:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git rm -rf .
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Show git branch via your bash prompt]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
     <updated>2012-07-14T13:10:00-07:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>
@@ -47,7 +74,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Track Upstream Branch in Git]]></title>
+    <title type="html"><![CDATA[Track upstream branch in git]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/"/>
     <updated>2012-07-14T12:43:00-07:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream</id>
