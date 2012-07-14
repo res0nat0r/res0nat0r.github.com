@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Track Upstream Branch in Git"
+title: "Track upstream branch in git"
 date: 2012-07-14 12:43
 comments: true
 categories: [git]

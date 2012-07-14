@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Show Git Branch via your Bash Prompt"
+title: "Show git branch via your bash prompt"
 date: 2012-07-14 13:10
 comments: true
 categories: [bash, git]
