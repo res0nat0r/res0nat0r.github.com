@@ -9,21 +9,11 @@
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="Show upstream remotes: 1
+  <meta name="description" content="Create the Bash function below to determine what branch you are using: 1
 2
 3
 4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-$ git remote show octopress
-* remote octopress Fetch URL: git://github.com/imathis/octopress. &hellip;">
+function parse_git_branch { ref=$(git symbolic-ref HEAD 2&gt; /dev/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +68,66 @@ $ git remote show octopress
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/14/show-git-branch-in-your-bash-prompt/">Show Git Branch via your Bash Prompt</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T13:10:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Create the Bash function below to determine what branch you are using:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">function </span>parse_git_branch <span class="o">{</span>
+</span><span class='line'>  <span class="nv">ref</span><span class="o">=</span><span class="k">$(</span>git symbolic-ref HEAD 2&gt; /dev/null<span class="k">)</span> <span class="o">||</span> <span class="k">return</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;(&quot;</span><span class="k">${</span><span class="nv">ref</span><span class="p">#refs/heads/</span><span class="k">}</span><span class="s2">&quot;)&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Update your PS1:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\\[\033[01;31m\] \$(parse_git_branch)\[\033[00m\]\n\[\033[01;34m\]\$\[\033[00m\] &quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -172,6 +222,10 @@ $ git remote show octopress
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/14/show-git-branch-in-your-bash-prompt/">Show Git Branch via your Bash Prompt</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/07/14/create-new-branch-that-tracks-upstream/">Track Upstream Branch in Git</a>

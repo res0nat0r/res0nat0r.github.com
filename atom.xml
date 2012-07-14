@@ -4,7 +4,7 @@
   <title><![CDATA[Notes]]></title>
   <link href="http://res0nat0r.github.com/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T13:00:13-07:00</updated>
+  <updated>2012-07-14T13:15:09-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Show Git Branch via your Bash Prompt]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
+    <updated>2012-07-14T13:10:00-07:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create the Bash function below to determine what branch you are using:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">function </span>parse_git_branch <span class="o">{</span>
+</span><span class='line'>  <span class="nv">ref</span><span class="o">=</span><span class="k">$(</span>git symbolic-ref HEAD 2&gt; /dev/null<span class="k">)</span> <span class="o">||</span> <span class="k">return</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;(&quot;</span><span class="k">${</span><span class="nv">ref</span><span class="p">#refs/heads/</span><span class="k">}</span><span class="s2">&quot;)&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Update your PS1:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\\[\033[01;31m\] \$(parse_git_branch)\[\033[00m\]\n\[\033[01;34m\]\$\[\033[00m\] &quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Track Upstream Branch in Git]]></title>

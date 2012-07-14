@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Notes]]></title>
   <link href="http://res0nat0r.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T13:00:13-07:00</updated>
+  <updated>2012-07-14T13:15:09-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Show Git Branch via your Bash Prompt]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
+    <updated>2012-07-14T13:10:00-07:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create the Bash function below to determine what branch you are using:</li>
+</ul>
+
+
+<p><code>bash
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2&gt; /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
+</code></p>
+
+<ul>
+<li>Update your PS1:</li>
+</ul>
+
+
+<p><code>bash
+export PS1="\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\\[\033[01;31m\] \$(parse_git_branch)\[\033[00m\]\n\[\033[01;34m\]\$\[\033[00m\] "
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Track Upstream Branch in Git]]></title>
