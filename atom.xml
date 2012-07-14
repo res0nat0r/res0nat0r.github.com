@@ -4,7 +4,7 @@
   <title><![CDATA[Notes]]></title>
   <link href="http://res0nat0r.github.com/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T12:47:27-07:00</updated>
+  <updated>2012-07-14T13:00:13-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -14,12 +14,55 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Take Upstream Branch in Git]]></title>
+    <title type="html"><![CDATA[Track Upstream Branch in Git]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/"/>
     <updated>2012-07-14T12:43:00-07:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout -t -b &lt;branch&gt; &lt;remote/branch&gt;
+    <content type="html"><![CDATA[<ul>
+<li>Show upstream remotes:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git remote show octopress
+</span><span class='line'>* remote octopress
+</span><span class='line'>  Fetch URL: git://github.com/imathis/octopress.git
+</span><span class='line'>  Push  URL: git://github.com/imathis/octopress.git
+</span><span class='line'>  HEAD branch: master
+</span><span class='line'>  Remote branches:
+</span><span class='line'>    2.1                 tracked
+</span><span class='line'>    gh-pages            tracked
+</span><span class='line'>    linklog             tracked
+</span><span class='line'>    master              tracked
+</span><span class='line'>    refactor_with_tests tracked
+</span><span class='line'>    rubygemcli          tracked
+</span><span class='line'>    site                tracked
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Create local branch tracking upstream:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git checkout -t -b rubygemcli octopress/rubygemcli
+</span><span class='line'>Branch rubygemcli <span class="nb">set </span>up to track remote branch rubygemcli from octopress.
+</span><span class='line'>Switched to a new branch <span class="s1">&#39;rubygemcli&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>

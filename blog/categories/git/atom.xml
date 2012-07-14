@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Notes]]></title>
   <link href="http://res0nat0r.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T12:47:27-07:00</updated>
+  <updated>2012-07-14T13:00:13-07:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -14,12 +14,44 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Take Upstream Branch in Git]]></title>
+    <title type="html"><![CDATA[Track Upstream Branch in Git]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/"/>
     <updated>2012-07-14T12:43:00-07:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream</id>
-    <content type="html"><![CDATA[<p><code>bash
-git checkout -t -b &lt;branch&gt; &lt;remote/branch&gt;
+    <content type="html"><![CDATA[<ul>
+<li>Show upstream remotes:</li>
+</ul>
+
+
+<p>``` bash</p>
+
+<p>$ git remote show octopress
+* remote octopress
+  Fetch URL: git://github.com/imathis/octopress.git
+  Push  URL: git://github.com/imathis/octopress.git
+  HEAD branch: master
+  Remote branches:</p>
+
+<pre><code>2.1                 tracked
+gh-pages            tracked
+linklog             tracked
+master              tracked
+refactor_with_tests tracked
+rubygemcli          tracked
+site                tracked
+</code></pre>
+
+<p>```</p>
+
+<ul>
+<li>Create local branch tracking upstream:</li>
+</ul>
+
+
+<p><code>bash
+$ git checkout -t -b rubygemcli octopress/rubygemcli
+Branch rubygemcli set up to track remote branch rubygemcli from octopress.
+Switched to a new branch 'rubygemcli'
 </code></p>
 ]]></content>
   </entry>
