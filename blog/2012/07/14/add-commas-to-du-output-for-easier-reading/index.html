@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: bash - Notes</title>
+  <title>Add commas to du output - Notes</title>
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="Category: bash">
+  <meta name="description" content="Note this requires GAWK Create commas.awk: 1
+{printf &quot;%d %s\n&quot;, $1, $2} Pipe du output through commas.awk: 1
+2
+$ du -sk | gawk -f commas. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://res0nat0r.github.comblog/categories/bash/">
+  <link rel="canonical" href="http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +66,106 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Bash</h1>
+    
+      <h1 class="entry-title">Add Commas to Du Output</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T17:48:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h4>Note this requires <a href="http://www.gnu.org/software/gawk/">GAWK</a></h4>
 
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/07/14/show-git-branch-in-your-bash-prompt/">Show git branch via your bash prompt</a></h1>
-<time datetime="2012-07-14T13:10:00-07:00" pubdate><span class='month'>Jul</span> <span class='day'>14</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bash/'>bash</a>, <a class='category' href='/blog/categories/git/'>git</a></span>
-</footer>
+<ul>
+<li>Create <em>commas.awk</em>:</li>
+</ul>
 
 
-</article>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">{</span><span class="nb">printf</span> <span class="s2">&quot;%d %s\n&quot;</span>, <span class="nv">$1</span>, <span class="nv">$2</span><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Pipe <em>du</em> output through <em>commas.awk</em>:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>du -sk | gawk -f commas.awk
+</span><span class='line'>38,522,624 .
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">res0nat0r</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T17:48:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/awk/'>awk</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/" data-via="" data-counturl="http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/14/create-a-new-and-empty-branch-in-git/" title="Previous Post: Create a new and empty branch in git">&laquo; Create a new and empty branch in git</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

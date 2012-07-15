@@ -9,10 +9,10 @@
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="
-Create new empty branch: 1
-$ git checkout --orphan &lt;branch&gt; Delete all files in the working directory: 1
-$ git rm -rf . ">
+  <meta name="description" content="Note this requires GAWK Create commas.awk: 1
+{printf &quot;%d %s\n&quot;, $1, $2} Pipe du output through commas.awk: 1
+2
+$ du -sk | gawk -f commas. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,64 @@ $ git rm -rf . ">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/">Add Commas to Du Output</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T17:48:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Note this requires <a href="http://www.gnu.org/software/gawk/">GAWK</a></h4>
+
+<ul>
+<li>Create <em>commas.awk</em>:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">{</span><span class="nb">printf</span> <span class="s2">&quot;%d %s\n&quot;</span>, <span class="nv">$1</span>, <span class="nv">$2</span><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Pipe <em>du</em> output through <em>commas.awk</em>:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>du -sk | gawk -f commas.awk
+</span><span class='line'>38,522,624 .
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -275,6 +333,10 @@ $ git rm -rf . ">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/">Add commas to du output</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/07/14/create-a-new-and-empty-branch-in-git/">Create a new and empty branch in git</a>
