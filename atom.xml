@@ -4,7 +4,7 @@
   <title><![CDATA[Notes]]></title>
   <link href="http://res0nat0r.github.com/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-23T21:46:07-04:00</updated>
+  <updated>2012-07-23T21:50:14-04:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -58,7 +58,7 @@
     <content type="html"><![CDATA[<h4>Note this requires <a href="http://www.gnu.org/software/gawk/">GAWK</a></h4>
 
 <ul>
-<li>Create <em>commas.awk</em>:</li>
+<li>Create <code>commas.awk</code>:</li>
 </ul>
 
 
@@ -68,7 +68,7 @@
 
 
 <ul>
-<li>Pipe <em>du</em> output through <em>commas.awk</em>:</li>
+<li>Pipe <em>du</em> output through <code>commas.awk</code>:</li>
 </ul>
 
 
