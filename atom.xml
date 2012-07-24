@@ -4,7 +4,7 @@
   <title><![CDATA[Notes]]></title>
   <link href="http://res0nat0r.github.com/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T17:54:13-07:00</updated>
+  <updated>2012-07-23T21:46:07-04:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -14,9 +14,46 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Add authentication to Gollum]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/"/>
+    <updated>2012-07-23T21:43:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create a Rack <code>config.ru</code> like below:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;gollum/frontend/app&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Auth</span><span class="o">::</span><span class="no">Basic</span><span class="p">,</span> <span class="s2">&quot;Restricted Area&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">|</span>
+</span><span class='line'>   <span class="o">[</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:gollum_path</span><span class="p">,</span> <span class="s1">&#39;&lt;repo-path&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:wiki_options</span><span class="p">,</span> <span class="p">{})</span>
+</span><span class='line'><span class="n">run</span> <span class="no">Precious</span><span class="o">::</span><span class="no">App</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Add commas to du output]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/"/>
-    <updated>2012-07-14T17:48:00-07:00</updated>
+    <updated>2012-07-14T17:48:00-04:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading</id>
     <content type="html"><![CDATA[<h4>Note this requires <a href="http://www.gnu.org/software/gawk/">GAWK</a></h4>
 
@@ -47,7 +84,7 @@
   <entry>
     <title type="html"><![CDATA[Create a new and empty branch in git]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git/"/>
-    <updated>2012-07-14T13:18:00-07:00</updated>
+    <updated>2012-07-14T13:18:00-04:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git</id>
     <content type="html"><![CDATA[<ul>
 <li>Create new empty branch:</li>
@@ -74,7 +111,7 @@
   <entry>
     <title type="html"><![CDATA[Show git branch via your bash prompt]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
-    <updated>2012-07-14T13:10:00-07:00</updated>
+    <updated>2012-07-14T13:10:00-04:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>
     <content type="html"><![CDATA[<ul>
 <li>Create the Bash function below to determine what branch you are using:</li>
@@ -107,7 +144,7 @@
   <entry>
     <title type="html"><![CDATA[Track upstream branch in git]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/"/>
-    <updated>2012-07-14T12:43:00-07:00</updated>
+    <updated>2012-07-14T12:43:00-04:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream</id>
     <content type="html"><![CDATA[<ul>
 <li>Show upstream remotes:</li>

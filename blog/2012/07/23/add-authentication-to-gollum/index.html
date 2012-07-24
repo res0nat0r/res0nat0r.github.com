@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Track upstream branch in git - Notes</title>
+  <title>Add authentication to Gollum - Notes</title>
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="Show upstream remotes: 1
+  <meta name="description" content="Create a Rack config.ru like below: 1
 2
 3
 4
@@ -20,10 +20,7 @@
 9
 10
 11
-12
-13
-$ git remote show octopress
-* remote octopress Fetch URL: git://github.com/imathis/octopress. &hellip;">
+require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth::Basic &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -32,7 +29,7 @@ $ git remote show octopress
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/">
+  <link rel="canonical" href="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -81,7 +78,7 @@ $ git remote show octopress
   
   <header>
     
-      <h1 class="entry-title">Track Upstream Branch in Git</h1>
+      <h1 class="entry-title">Add Authentication to Gollum</h1>
     
     
       <p class="meta">
@@ -97,7 +94,7 @@ $ git remote show octopress
   
 
 
-<time datetime="2012-07-14T12:43:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-23T21:43:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2012</time>
         
       </p>
     
@@ -105,7 +102,7 @@ $ git remote show octopress
 
 
 <div class="entry-content"><ul>
-<li>Show upstream remotes:</li>
+<li>Create a Rack <code>config.ru</code> like below:</li>
 </ul>
 
 
@@ -120,35 +117,17 @@ $ git remote show octopress
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git remote show octopress
-</span><span class='line'>* remote octopress
-</span><span class='line'>  Fetch URL: git://github.com/imathis/octopress.git
-</span><span class='line'>  Push  URL: git://github.com/imathis/octopress.git
-</span><span class='line'>  HEAD branch: master
-</span><span class='line'>  Remote branches:
-</span><span class='line'>    2.1                 tracked
-</span><span class='line'>    gh-pages            tracked
-</span><span class='line'>    linklog             tracked
-</span><span class='line'>    master              tracked
-</span><span class='line'>    refactor_with_tests tracked
-</span><span class='line'>    rubygemcli          tracked
-</span><span class='line'>    site                tracked
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Create local branch tracking upstream:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git checkout -t -b rubygemcli octopress/rubygemcli
-</span><span class='line'>Branch rubygemcli <span class="nb">set </span>up to track remote branch rubygemcli from octopress.
-</span><span class='line'>Switched to a new branch <span class="s1">&#39;rubygemcli&#39;</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;gollum/frontend/app&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Auth</span><span class="o">::</span><span class="no">Basic</span><span class="p">,</span> <span class="s2">&quot;Restricted Area&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">|</span>
+</span><span class='line'>   <span class="o">[</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:gollum_path</span><span class="p">,</span> <span class="s1">&#39;&lt;repo-path&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:wiki_options</span><span class="p">,</span> <span class="p">{})</span>
+</span><span class='line'><span class="n">run</span> <span class="no">Precious</span><span class="o">::</span><span class="no">App</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
@@ -173,12 +152,12 @@ $ git remote show octopress
   
 
 
-<time datetime="2012-07-14T12:43:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-23T21:43:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>git</a>
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/gollum/'>gollum</a>
   
 </span>
 
@@ -187,7 +166,7 @@ $ git remote show octopress
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/" data-via="" data-counturl="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/" data-via="" data-counturl="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/" >Tweet</a>
   
   
   
@@ -196,8 +175,8 @@ $ git remote show octopress
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/" title="Previous Post: Add commas to du output">&laquo; Add commas to du output</a>
       
-        <a class="basic-alignment right" href="/blog/2012/07/14/show-git-branch-in-your-bash-prompt/" title="Next Post: Show git branch via your bash prompt">Show git branch via your bash prompt &raquo;</a>
       
     </p>
   </footer>

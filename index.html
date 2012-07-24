@@ -9,10 +9,18 @@
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="Note this requires GAWK Create commas.awk: 1
-{printf &quot;%d %s\n&quot;, $1, $2} Pipe du output through commas.awk: 1
+  <meta name="description" content="Create a Rack config.ru like below: 1
 2
-$ du -sk | gawk -f commas. &hellip;">
+3
+4
+5
+6
+7
+8
+9
+10
+11
+require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth::Basic &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +81,70 @@ $ du -sk | gawk -f commas. &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/07/23/add-authentication-to-gollum/">Add Authentication to Gollum</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-23T21:43:00-04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Create a Rack <code>config.ru</code> like below:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;gollum/frontend/app&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Auth</span><span class="o">::</span><span class="no">Basic</span><span class="p">,</span> <span class="s2">&quot;Restricted Area&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">|</span>
+</span><span class='line'>   <span class="o">[</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">]</span> <span class="o">==</span> <span class="o">[</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:gollum_path</span><span class="p">,</span> <span class="s1">&#39;&lt;repo-path&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="no">Precious</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="ss">:wiki_options</span><span class="p">,</span> <span class="p">{})</span>
+</span><span class='line'><span class="n">run</span> <span class="no">Precious</span><span class="o">::</span><span class="no">App</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/">Add Commas to Du Output</a></h1>
     
     
@@ -89,7 +161,7 @@ $ du -sk | gawk -f commas. &hellip;">
   
 
 
-<time datetime="2012-07-14T17:48:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-14T17:48:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
         
       </p>
     
@@ -147,7 +219,7 @@ $ du -sk | gawk -f commas. &hellip;">
   
 
 
-<time datetime="2012-07-14T13:18:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-14T13:18:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
         
       </p>
     
@@ -201,7 +273,7 @@ $ du -sk | gawk -f commas. &hellip;">
   
 
 
-<time datetime="2012-07-14T13:10:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-14T13:10:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
         
       </p>
     
@@ -261,7 +333,7 @@ $ du -sk | gawk -f commas. &hellip;">
   
 
 
-<time datetime="2012-07-14T12:43:00-07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-14T12:43:00-04:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
         
       </p>
     
@@ -333,6 +405,10 @@ $ du -sk | gawk -f commas. &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/23/add-authentication-to-gollum/">Add authentication to Gollum</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/">Add commas to du output</a>

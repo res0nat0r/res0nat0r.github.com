@@ -4,7 +4,7 @@
   <title><![CDATA[Category: awk | Notes]]></title>
   <link href="http://res0nat0r.github.com/blog/categories/awk/atom.xml" rel="self"/>
   <link href="http://res0nat0r.github.com/"/>
-  <updated>2012-07-14T17:54:13-07:00</updated>
+  <updated>2012-07-23T21:46:07-04:00</updated>
   <id>http://res0nat0r.github.com/</id>
   <author>
     <name><![CDATA[res0nat0r]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Add commas to du output]]></title>
     <link href="http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading/"/>
-    <updated>2012-07-14T17:48:00-07:00</updated>
+    <updated>2012-07-14T17:48:00-04:00</updated>
     <id>http://res0nat0r.github.com/blog/2012/07/14/add-commas-to-du-output-for-easier-reading</id>
     <content type="html"><![CDATA[<h4>Note this requires <a href="http://www.gnu.org/software/gawk/">GAWK</a></h4>
 
