@@ -1,3 +1,4 @@
+Bundler.require(:default)
 ---
 layout: post
 title: "Track upstream branch in git"
