@@ -9,7 +9,7 @@
   <meta name="author" content="res0nat0r">
 
   
-  <meta name="description" content="Create a Rack config.ru like below: 1
+  <meta name="description" content="1
 2
 3
 4
@@ -17,10 +17,8 @@
 6
 7
 8
-9
-10
-11
-require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth::Basic &hellip;">
+#!/usr/bin/env python import boto s3 = boto.connect_s3()
+b = boto.lookup(&#39;bucket&#39;) [x.change_storage_class(&#39; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +73,59 @@ require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth:
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/29/convert-all-s3-objects-to-rrd/">Convert All S3 Objects to RRD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-29T22:26:00-05:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">boto</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s3</span> <span class="o">=</span> <span class="n">boto</span><span class="o">.</span><span class="n">connect_s3</span><span class="p">()</span>
+</span><span class='line'><span class="n">b</span>  <span class="o">=</span> <span class="n">boto</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s">&#39;bucket&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">change_storage_class</span><span class="p">(</span><span class="s">&#39;REDUCED_REDUNDANCY&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">storage_class</span> <span class="o">==</span> <span class="s">&#39;STANDARD&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -407,6 +458,10 @@ require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/29/convert-all-s3-objects-to-rrd/">Convert all S3 objects to RRD</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/23/add-authentication-to-gollum/">Add authentication to Gollum</a>
       </li>
     
@@ -420,10 +475,6 @@ require &#39;rubygems&#39; require &#39;gollum/frontend/app&#39; use Rack::Auth:
     
       <li class="post">
         <a href="/blog/2012/07/14/show-git-branch-in-your-bash-prompt/">Show git branch via your bash prompt</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/14/create-new-branch-that-tracks-upstream/">Track upstream branch in git</a>
       </li>
     
   </ul>

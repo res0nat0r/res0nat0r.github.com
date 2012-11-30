@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: s3 | Notes]]></title>
+  <link href="http://res0nat0r.github.com/blog/categories/s3/atom.xml" rel="self"/>
+  <link href="http://res0nat0r.github.com/"/>
+  <updated>2012-11-29T22:37:25-05:00</updated>
+  <id>http://res0nat0r.github.com/</id>
+  <author>
+    <name><![CDATA[res0nat0r]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Convert all S3 objects to RRD]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/11/29/convert-all-s3-objects-to-rrd/"/>
+    <updated>2012-11-29T22:26:00-05:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/11/29/convert-all-s3-objects-to-rrd</id>
+    <content type="html"><![CDATA[<p>```python</p>
+
+<h1>!/usr/bin/env python</h1>
+
+<p>import boto</p>
+
+<p>s3 = boto.connect_s3()
+b  = boto.lookup('bucket')</p>
+
+<p>[x.change_storage_class('REDUCED_REDUNDANCY') for x in b.list() if x.storage_class == 'STANDARD']
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
