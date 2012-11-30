@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gollum | Notes]]></title>
+  <link href="http://res0nat0r.github.com/blog/categories/gollum/atom.xml" rel="self"/>
+  <link href="http://res0nat0r.github.com/"/>
+  <updated>2012-07-23T21:50:14-04:00</updated>
+  <id>http://res0nat0r.github.com/</id>
+  <author>
+    <name><![CDATA[res0nat0r]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Add authentication to Gollum]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/"/>
+    <updated>2012-07-23T21:43:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create a Rack <code>config.ru</code> like below:</li>
+</ul>
+
+
+<p>```ruby
+require 'rubygems'</p>
+
+<p>require 'gollum/frontend/app'</p>
+
+<p>use Rack::Auth::Basic, "Restricted Area" do |username, password|
+   [username, password] == ['admin', 'admin']
+end</p>
+
+<p>Precious::App.set(:gollum_path, '<repo-path>')
+Precious::App.set(:wiki_options, {})
+run Precious::App
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

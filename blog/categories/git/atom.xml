@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Notes]]></title>
+  <link href="http://res0nat0r.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://res0nat0r.github.com/"/>
+  <updated>2012-07-23T21:50:14-04:00</updated>
+  <id>http://res0nat0r.github.com/</id>
+  <author>
+    <name><![CDATA[res0nat0r]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Add authentication to Gollum]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum/"/>
+    <updated>2012-07-23T21:43:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/23/add-authentication-to-gollum</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create a Rack <code>config.ru</code> like below:</li>
+</ul>
+
+
+<p>```ruby
+require 'rubygems'</p>
+
+<p>require 'gollum/frontend/app'</p>
+
+<p>use Rack::Auth::Basic, "Restricted Area" do |username, password|
+   [username, password] == ['admin', 'admin']
+end</p>
+
+<p>Precious::App.set(:gollum_path, '<repo-path>')
+Precious::App.set(:wiki_options, {})
+run Precious::App
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Create a new and empty branch in git]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git/"/>
+    <updated>2012-07-14T13:18:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/create-a-new-and-empty-branch-in-git</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create new empty branch:</li>
+</ul>
+
+
+<p><code>bash
+$ git checkout --orphan &lt;branch&gt;
+</code></p>
+
+<ul>
+<li>Delete all files in the working directory:</li>
+</ul>
+
+
+<p><code>bash
+$ git rm -rf .
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Show git branch via your bash prompt]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt/"/>
+    <updated>2012-07-14T13:10:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/show-git-branch-in-your-bash-prompt</id>
+    <content type="html"><![CDATA[<ul>
+<li>Create the Bash function below to determine what branch you are using:</li>
+</ul>
+
+
+<p><code>bash
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2&gt; /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
+</code></p>
+
+<ul>
+<li>Update your PS1:</li>
+</ul>
+
+
+<p><code>bash
+export PS1="\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\\[\033[01;31m\] \$(parse_git_branch)\[\033[00m\]\n\[\033[01;34m\]\$\[\033[00m\] "
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Track upstream branch in git]]></title>
+    <link href="http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream/"/>
+    <updated>2012-07-14T12:43:00-04:00</updated>
+    <id>http://res0nat0r.github.com/blog/2012/07/14/create-new-branch-that-tracks-upstream</id>
+    <content type="html"><![CDATA[<ul>
+<li>Show upstream remotes:</li>
+</ul>
+
+
+<p>``` bash</p>
+
+<p>$ git remote show octopress
+* remote octopress
+  Fetch URL: git://github.com/imathis/octopress.git
+  Push  URL: git://github.com/imathis/octopress.git
+  HEAD branch: master
+  Remote branches:</p>
+
+<pre><code>2.1                 tracked
+gh-pages            tracked
+linklog             tracked
+master              tracked
+refactor_with_tests tracked
+rubygemcli          tracked
+site                tracked
+</code></pre>
+
+<p>```</p>
+
+<ul>
+<li>Create local branch tracking upstream:</li>
+</ul>
+
+
+<p><code>bash
+$ git checkout -t -b rubygemcli octopress/rubygemcli
+Branch rubygemcli set up to track remote branch rubygemcli from octopress.
+Switched to a new branch 'rubygemcli'
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
